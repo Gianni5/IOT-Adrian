@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf318033-787c-4678-9496-409c072b4f7b" name="Default Changelist" comment="" />
+    <list default="true" id="bf318033-787c-4678-9496-409c072b4f7b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/monitor_ii/sysmon-table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitor_ii/data/monitor_data.db" beforeDir="false" afterPath="$PROJECT_DIR$/monitor_ii/data/monitor_data.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,7 +38,7 @@
       <recent name="C:\Users\Giovanni\GC-Iot-portfolio" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.sysmon-table">
     <configuration name="monitor_cpu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GC-Iot-portfolio" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -49,8 +60,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sysmon-table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GC-Iot-portfolio" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/monitor_ii" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/monitor_ii/sysmon-table.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sysmon-table" />
         <item itemvalue="Python.monitor_cpu" />
       </list>
     </recent_temporary>
@@ -69,6 +102,22 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1345" height="268" key="GridCell.Tab.0.bottom" timestamp="1606120769456">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="268" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606120769456" />
+    <state width="1345" height="268" key="GridCell.Tab.0.center" timestamp="1606120769456">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="268" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606120769456" />
+    <state width="1345" height="268" key="GridCell.Tab.0.left" timestamp="1606120769456">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="268" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606120769456" />
+    <state width="1345" height="268" key="GridCell.Tab.0.right" timestamp="1606120769456">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="268" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606120769456" />
     <state x="0" y="10" key="SettingsEditor" timestamp="1606115827688">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
