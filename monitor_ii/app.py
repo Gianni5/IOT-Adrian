@@ -83,5 +83,21 @@ def cpu_load_latest():
     return cpu_load(1)
 
 
+@app.route("/api/device-load")
+def device_load():
+    return {"error": None,}
+
+
+@app.route("/api/environment")
+@app.route("/api/temperature")
+@app.route("/api/pressure")
+@app.route("/api/humidity")
+def get_api_environment():
+    return {"error": "Route note implemented",
+            "temperature": None,
+            "pressure": None,
+            "humidity": None,}
+
+
 if __name__ == '__main__':
     app.run()
