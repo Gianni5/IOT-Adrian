@@ -47,7 +47,7 @@ class Storage(Base):
 
 
 class EnvironmentTPH(Base):
-    _tablename__ = 'tph_storage'
+    __tablename__ = 'tph_storage'
     id = Column(Integer, primary_key=True)
     device_name = Column(String)
     device_mac = Column(String)

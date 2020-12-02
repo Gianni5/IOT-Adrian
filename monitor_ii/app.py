@@ -1,11 +1,12 @@
 from flask import Flask, render_template, jsonify
-from db import CPU, Storage, Base
+from db import CPU, Storage, Base, EnvironmentTPH
 from flask_cors import CORS
 
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 
 db_filename = './data/monitor_data.db'
+
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -88,10 +89,114 @@ def device_load():
     return {"error": None,}
 
 
+@app.route("/api/environment/<qty>")
+def environment(qty=1):
+    try:
+        qty = abs(int(qty))
+    except:
+        qty = 1
+    active_session = session()
+    enviro = active_session.query(EnvironmentTPH).order_by(EnvironmentTPH.created_at.desc()).limit(qty).all()
+    enviro_dict = {}
+    for row in enviro:
+        enviro_dict[row.id]= {
+            'created_at': row.created_at,
+            'host_mac': row.device_mac,
+            'temperature': row.temperature,
+            'pressure': row.pressure,
+            'humidity': row.humidity,
+            'host_name': row.device_name,
+            'id': row.id,
+            'serial': row.device_serial,
+        }
+    return jsonify(enviro_dict)
+
+
 @app.route("/api/environment")
+def environment_latest():
+    return environment(1)
+
+
+@app.route("/api/temperature/<qty>")
+def temperature(qty=1):
+    try:
+        qty = abs(int(qty))
+    except:
+        qty = 1
+    active_session = session()
+    enviro = active_session.query(EnvironmentTPH).order_by(EnvironmentTPH.created_at.desc()).limit(qty).all()
+    enviro_dict = {}
+    for row in enviro:
+        enviro_dict[row.id] = {
+            'created_at': row.created_at,
+            'host_mac': row.device_mac,
+            'temperature': row.temperature,
+            'host_name': row.device_name,
+            'id': row.id,
+            'serial': row.device_serial,
+    }
+    return jsonify(enviro_dict)
+
+
 @app.route("/api/temperature")
+def temperature_latest():
+    return temperature(1)
+
+
+@app.route("/api/pressure/<qty>")
+def pressure(qty=1):
+    try:
+        qty = abs(int(qty))
+    except:
+        qty = 1
+    active_session = session()
+    enviro = active_session.query(EnvironmentTPH).order_by(EnvironmentTPH.created_at.desc()).limit(qty).all()
+    enviro_dict = {}
+    for row in enviro:
+        enviro_dict[row.id] = {
+            'created_at': row.created_at,
+            'host_mac': row.device_mac,
+            'pressure': row.pressure,
+            'host_name': row.device_name,
+            'id': row.id,
+            'serial': row.device_serial,
+
+        }
+    return jsonify(enviro_dict)
+
+
 @app.route("/api/pressure")
+def pressure_latest():
+    return pressure(1)
+
+
+@app.route("/api/humidity/<qty>")
+def humidity(qty=1):
+    try:
+        qty = abs(int(qty))
+    except:
+        qty = 1
+    active_session = session()
+    enviro = active_session.query(EnvironmentTPH).order_by(EnvironmentTPH.created_at.desc()).limit(qty).all()
+    enviro_dict = {}
+    for row in enviro:
+        enviro_dict[row.id] = {
+            'created_at': row.created_at,
+            'host_mac': row.device_mac,
+            'humidity': row.humidity,
+            'host_name': row.device_name,
+            'id': row.id,
+            'serial': row.device_serial,
+
+        }
+    return jsonify(enviro_dict)
+
+
 @app.route("/api/humidity")
+def humidity_latest():
+    return humidity(1)
+
+
 def get_api_environment():
     return {"error": "Route note implemented",
             "temperature": None,

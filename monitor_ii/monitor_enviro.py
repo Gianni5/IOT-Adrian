@@ -8,8 +8,8 @@ from sqlalchemy.orm import sessionmaker
 
 # import the methods that will be used from the mypi file
 from mypi import \
-    get_serial, get_mac, get_host_name, \
-    get_cpu_temp, get_gpu_temp, get_maximum_cpu
+    get_serial, get_mac, get_host_name
+
 from db import EnvironmentTPH, Base
 
 from sense_hat import SenseHat
@@ -39,7 +39,7 @@ def main(_delay):
         enviro = EnvironmentTPH()
         enviro.device_name = get_host_name()
         enviro.device_serial = get_serial()
-        enviro.device.mac = get_mac()
+        enviro.device_mac = get_mac()
         enviro.temperature = sense.get_temperature()
         enviro.pressure = sense.get_pressure()
         enviro.humidity = sense.get_humidity()
@@ -49,16 +49,16 @@ def main(_delay):
         session.add(enviro)
         session.commit()
 
-        last_readings = session.query(CPU).order_by(CPU.id.desc()).first()
+        last_readings = session.query(EnvironmentTPH).order_by(EnvironmentTPH.id.desc()).first()
 
         if counter % 10 == 0:
             headings()
         counter += 1
 
-        print(f'{enviro.device_name:<10}|{enviro.device_serial:<18}|'
-              f'{enviro.device.mac:^20}|{enviro.temperature}  |'
-              f'{enviro.pressure :>8.1f}|{enviro.humidity:>8.1f}|'
-              f'{enviro.created_at:>8.1f}'
+        print(f'{last_readings.device_name:^10}|{last_readings.device_serial:^18}|'
+              f'{last_readings.device_mac:^20}|{last_readings.temperature}  |'
+              f'{last_readings.pressure :>8.1f}|{last_readings.humidity:>8.1f}|'
+              f'{last_readings.created_at:>8.1f}'
               f'')
 
         sleep(_delay)
