@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from sqlalchemy     import Column, String, Integer, Float, DateTime
-from sqlalchemy.ext.declarative     import declarative_base
+from sqlalchemy import Column, String, Integer, Float, DateTime
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
@@ -44,3 +44,24 @@ class Storage(Base):
         self.total_storage = None
         self.free_storage = None
         self.used_storage = None
+
+
+class EnvironmentTPH(Base):
+    _tablename__ = 'tph_storage'
+    id = Column(Integer, primary_key=True)
+    device_name = Column(String)
+    device_mac = Column(String)
+    device_serial = Column(String)
+    temperature = Column(Float)
+    pressure = Column(Float)
+    humidity = Column(Float)
+    created_at = Column(DateTime)
+
+    def __init__(self):
+        self.device_name = "UNKNOWN"
+        self.device_mac = "ZZ:ZZ:ZZ:ZZ:ZZ:ZZ"
+        self.device_serial = "UNKNOWN"
+        self.temperature = None
+        self.pressure = None
+        self.humidity = None
+        self.created_at = datetime.now()
