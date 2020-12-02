@@ -4,11 +4,11 @@
 
 var barChartCanvas2 = document.getElementById("temperature-Chart");
 
-var pieData = {
+let tempData = {
     labels: ['temperature'],
 
     datasets: [{
-        labels: 'temperature',
+        label: 'current',
         data: [36,],
         borderWidth: 1,
         borderColor:['rgba(251, 86, 7, 0.5)'],
@@ -20,11 +20,31 @@ var pieData = {
 
 }
 
-var pieOptions = {}
+var tempOptions = {}
 
-var myPieChart = new Chart(barChartCanvas2, {
+var myBarChart = new Chart(barChartCanvas2, {
     type: 'bar',
-    data: pieData,
-    options: pieOptions,
+    data: tempData,
+    options: tempOptions,
 })
 
+function temperature() {
+    let url = "http://127.0.0.1:5555/api/temperature"
+    let method = "GET"
+    let typeOfResponse = "json"
+    let xhr = new XMLHttpRequest()
+    xhr.open(method, url)
+    xhr.responseType = typeOfResponse
+    xhr.send()
+    xhr.onload = function () {
+        let responseObj = xhr.response
+        for (let responseNumber in responseObj) {
+            let myTemperature = responseObj[responseNumber].temperature
+
+            myBarChart.data.datasets[0].data = [myTemperature]
+            myBarChart.update()
+        }
+    }
+}
+
+setInterval(temperature,5000)
