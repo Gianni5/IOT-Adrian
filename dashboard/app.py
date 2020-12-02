@@ -3,6 +3,7 @@ from db import Database
 
 app = Flask(__name__)
 
+
 # mango: rgba(255, 190, 11, 1);
 # mango: rgba(255, 190, 11, 0.5);
 # orange-pantone: rgba(251, 86, 7, 1);
@@ -19,6 +20,11 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/humidity')
+def humidity():
+    return render_template('humidity.html')
 
 
 @app.route('/cpu')

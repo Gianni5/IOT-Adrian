@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block page_css %}
+    <link href="/static/vendor/chartjs/css/Chart.css" rel="stylesheet" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+<h1>EnviroMon Dashboard</h1>
+
+
+<div class="card-deck pb-4">
+
+
+
+    <div class="card">
+        <h2 id ="heading" class="card-header">Humidity</h2>
+        <div class="card-body">
+            <canvas id="humidity-Chart"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+    <script  src="/static/vendor/chartjs/js/Chart.bundle.js"></script>
+    <script  src="/static/js/linechartHumidity.js"></script>
+
+
+{% endblock %}
